@@ -1,13 +1,13 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import AppNavMobile from './components/app/AppNavMobile.vue'
+import { RouterView } from 'vue-router'
 
 </script>
 
 <template>
-  <div class="p-20px">
-    <h1 class="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+  <AppNavMobile />
+
+  <div class="max-w-[1080px] m-auto">
+    <RouterView />
   </div>
-  <RouterView />
 </template>
