@@ -1,0 +1,24 @@
+<script setup>
+
+</script>
+
+<template>
+  <div class="flex flex-col gap-12px md:gap-20px md:flex-row mt-12px md:mt-0px">
+    <div class="w-full md:max-w-[275px]">
+      <img src="../../assets/person.png" class="w-full border border-lightBlue rounded-6px custom-box-shadow">
+    </div>
+    <div class="w-full bg-gray border border-lightBlue rounded-[6px] custom-box-shadow px-[30px] py-42px lg:px-[60px] flex flex-col gap-20px">
+      <h2 class="uppercase text-[24px] font-medium">John doe</h2>
+      <ul class="flex flex-col gap-5px list-disc text-[16px] ml-12px font-normal">
+        <li>Web front-end developer, with 2 years of experience.</li>
+        <li>Have a deep knowledge of UI/UX design.</li>
+        <li>Have great soft skills.</li>
+      </ul>
+      
+      <router-link class="text-[16px] text-aqua underline font-normal" to="/about">
+        More about me?
+      </router-link>
+    </div>
+  </div>
+</template>
+

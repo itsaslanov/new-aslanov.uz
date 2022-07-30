@@ -9,9 +9,10 @@ module.exports = {
       black: '#070B0D', 
       gray: '#151A1E',
       darkBlue: '#032B3A',
+      lightBlue: '#34383C',
       green: '#15803D',
       blue: '#3935FF',
-      red: '#FF2E2E',
+      lightRed: '#FF2E2E',
     },
     extend: {
       spacing: {
