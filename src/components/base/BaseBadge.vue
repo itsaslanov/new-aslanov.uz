@@ -25,6 +25,6 @@ const badgeClass = computed(() => {
   <div class="flex gap-[5px]">
     <h1 class="text-[24px] text-aqua">{{ contentText }}</h1>
     <span :class="badgeClass"
-      class="uppercase bg-lightRed h-max px-12px py-2px rounded-[4px] self-center font-bold">Top</span>
+      class="uppercase bg-lightRed h-max px-6px py-2px rounded-[4px] self-center font-bold">Top</span>
   </div>
 </template>

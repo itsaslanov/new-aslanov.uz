@@ -66,6 +66,15 @@ const toggleNav = () => {
 </template>
 
 <style scoped>
+a.router-link-active {
+  color: #86F3DF;
+}
+
+a {
+  display: block;
+  text-align: center;
+}
+
 @media only screen and (max-width: 768px) {
 
   a.router-link-active {
@@ -79,14 +88,5 @@ const toggleNav = () => {
     padding: 14px 0;
     border-top: 1px solid #070B0D;
   }
-}
-
-a.router-link-active {
-  color: #86F3DF;
-}
-
-a {
-  display: block;
-  text-align: center;
 }
 </style>
