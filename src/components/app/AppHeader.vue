@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="flex flex-col gap-12px md:gap-20px md:flex-row mt-12px md:mt-0px">
+  <div class="flex flex-col gap-12px md:gap-20px md:flex-row md:mt-0px">
     <div class="w-full md:max-w-[275px]">
       <img src="../../assets/person.png" class="w-full border border-lightBlue rounded-6px custom-box-shadow">
     </div>

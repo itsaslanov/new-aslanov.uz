@@ -9,8 +9,9 @@ import BaseBadge from './components/base/BaseBadge.vue';
 <template>
   <AppNav />
   <div class="max-w-[1080px] px-24px xl:px-0 mx-auto">
-    <AppHeader />
-    <BaseBadge /> 
+    <!-- <AppHeader class="mt-12px" /> -->
+    <!-- <BaseBadge class="mt-14px" contentText="Front-end projects" :badge="true"/>  -->
+
   </div>
 
   <!-- <RouterView /> -->
