@@ -60,8 +60,20 @@ a.router-link-active {
   color: #86F3DF;
 }
 
+a.router-link-active:hover {
+  opacity: 1;
+}
+
 a {
   display: block;
+  text-align: center;
+  transition-property: all;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+transition-duration: 150ms;
+}
+
+a:hover {
+  opacity: 0.5;
 }
 
 @media only screen and (max-width: 768px) {
