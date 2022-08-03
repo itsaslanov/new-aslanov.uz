@@ -3,7 +3,7 @@ import BaseCard from "../base/BaseCard.vue";
 
 const cards = [
   {
-    img: "../../assets/img/project.png",
+    img: "",
     hashtags: [
       {
         hash: "Vue.js",
@@ -23,6 +23,9 @@ const cards = [
   {
     title: "hey",
   },
+  {
+    title: "hey",
+  },
 ];
 </script>
 
@@ -30,7 +33,7 @@ const cards = [
   <div class="grid-sys">
     <BaseCard v-for="card of cards" :key="card.id">
       <template #image>
-        <img :src="card.img" alt="" />
+        <img src="../../assets/img/project.png" class="rounded-t-6px" alt="" />
       </template>
 
       <template #hashtag>
