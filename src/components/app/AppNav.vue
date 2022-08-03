@@ -87,6 +87,9 @@ a {
     margin: 0;
     padding: 14px 0;
     border-top: 1px solid #070B0D;
+    font-size: 14px;
+    font-weight: 600;
   }
+  
 }
 </style>

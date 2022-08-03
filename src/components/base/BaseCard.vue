@@ -5,5 +5,6 @@
     <slot name="image"></slot>
     <slot name="hashtag"></slot>
     <slot name="title"></slot>
+    <slot name="buttons"></slot>
   </div>
 </template>

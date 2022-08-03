@@ -3,25 +3,28 @@ const COLORS = ["is-default", "is-primary", "is-secondary"];
 </script>
 
 <script setup>
-import { computed } from 'vue'
+import { computed } from "vue";
 
 const { color } = defineProps({
   color: {
     type: String,
-    default: () => 'default',
+    default: () => "default",
     validation: (value) => COLORS.includes(value),
-  }
-})
+  },
+});
 
 const classes = computed(() => {
   return {
-     [`is-${color}`]: true,
-  }
-})
+    [`is-${color}`]: true,
+  };
+});
 </script>
 
 <template>
-  <button :class="classes" class="base-button flex gap-2 w-[110px] justify-center rounded">
+  <button
+    :class="classes"
+    class="base-button flex gap-2 w-full p-[4px] md:p-[2px] justify-center rounded"
+  >
     <slot></slot>
   </button>
 </template>
