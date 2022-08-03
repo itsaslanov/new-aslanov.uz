@@ -1,4 +1,5 @@
 <script setup>
+import { } from 'vue';
 
 import AppHeader from '../components/app/AppHeader.vue'
 import BaseBadge from '../components/base/BaseBadge.vue'
@@ -7,7 +8,7 @@ import BaseButton from '../components/base/BaseButton.vue'
 
 import { allCards } from '../use/cards'
 
-const {cards} = allCards();
+const { cards } = allCards();
 
 </script>
 
@@ -18,7 +19,7 @@ const {cards} = allCards();
         <BaseBadge class="mt-14px" contentText="Front-end projects" :badge="true" />
 
         <div class="grid-system mt-14px">
-            <BaseCard v-for="card of cards" :key="card.id" class="hover:opacity-90">
+            <BaseCard v-for="card of cards.slice(0, 4)" :key="card.id" class="hover:opacity-90">
                 <template #image>
                     <img src="../assets/img/project.png" class="rounded-t-6px" alt="" />
                 </template>
@@ -72,7 +73,7 @@ const {cards} = allCards();
         <BaseBadge contentText="UI design projects" :badge="true" />
 
         <div class="grid-system mt-14px">
-            <BaseCard v-for="card of cards" :key="card.id" class="hover:opacity-90">
+            <BaseCard v-for="card of cards.slice(0, 4)" :key="card.id" class="hover:opacity-90">
                 <template #image>
                     <img src="../assets/img/project.png" class="rounded-t-6px" alt="" />
                 </template>
@@ -115,5 +116,5 @@ const {cards} = allCards();
             </span>
         </RouterLink>
     </div>
- 
+
 </template>

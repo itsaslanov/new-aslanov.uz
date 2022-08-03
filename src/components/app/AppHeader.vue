@@ -1,5 +1,17 @@
 <script setup>
+import { ref } from 'vue'
 
+const shortDescriptions = ref([
+  {
+    title: "Web front-end developer, with 2 years of experience."
+  },
+  {
+    title: "Have a deep knowledge of UI/UX design."
+  },
+  {
+    title: "Have great soft skills."
+  }
+])
 </script>
 
 <template>
@@ -7,14 +19,12 @@
     <div class="w-full md:max-w-[275px]">
       <img src="../../assets/person.png" class="w-full border border-lightBlue rounded-6px custom-box-shadow">
     </div>
-    <div class="w-full bg-gray border border-lightBlue rounded-[6px] custom-box-shadow px-[30px] py-42px lg:px-[60px] flex flex-col gap-20px">
+    <div
+      class="w-full bg-gray border border-lightBlue rounded-[6px] custom-box-shadow px-[30px] py-42px lg:px-[60px] flex flex-col gap-20px">
       <h2 class="uppercase text-[24px] font-medium">John doe</h2>
       <ul class="flex flex-col gap-5px list-disc text-[16px] ml-12px font-normal">
-        <li>Web front-end developer, with 2 years of experience.</li>
-        <li>Have a deep knowledge of UI/UX design.</li>
-        <li>Have great soft skills.</li>
+        <li v-for="shortDescription of shortDescriptions">{{ shortDescription.title }}</li>
       </ul>
-      
       <router-link class="text-[16px] text-aqua underline font-normal" to="/about">
         More about me?
       </router-link>

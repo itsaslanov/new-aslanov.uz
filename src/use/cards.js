@@ -66,6 +66,70 @@ export function allCards() {
       github: "https://www.github.com/",
       behance: "https://www.behance.net/",
     },
+    {
+      title: "CRUD app",
+      hashtags: [
+        {
+          hash: "Vue.js",
+        },
+        {
+          hash: "Pinia",
+        },
+        {
+          hash: "Firebase",
+        },
+      ],
+      github: "https://www.github.com/",
+      behance: "https://www.behance.net/",
+    },
+    {
+      title: "CRUD app",
+      hashtags: [
+        {
+          hash: "Vue.js",
+        },
+        {
+          hash: "Pinia",
+        },
+        {
+          hash: "Firebase",
+        },
+      ],
+      github: "https://www.github.com/",
+      behance: "https://www.behance.net/",
+    },
+    {
+      title: "CRUD app",
+      hashtags: [
+        {
+          hash: "Vue.js",
+        },
+        {
+          hash: "Pinia",
+        },
+        {
+          hash: "Firebase",
+        },
+      ],
+      github: "https://www.github.com/",
+      behance: "https://www.behance.net/",
+    },
+    {
+      title: "CRUD app",
+      hashtags: [
+        {
+          hash: "Vue.js",
+        },
+        {
+          hash: "Pinia",
+        },
+        {
+          hash: "Firebase",
+        },
+      ],
+      github: "https://www.github.com/",
+      behance: "https://www.behance.net/",
+    },
   ]);
 
   return {
