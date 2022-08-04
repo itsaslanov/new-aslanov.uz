@@ -14,7 +14,7 @@ const { cards } = allCards();
 
 <template>
     <div class="max-w-[1080px] px-24px xl:px-0 mx-auto">
-        <AppHeader class="mt-[10px] md:mt-[0px]" />
+        <AppHeader class="mt-[14px] md:mt-[0px]" />
 
         <BaseBadge class="mt-14px" contentText="Front-end projects" :badge="true" />
 
@@ -25,7 +25,7 @@ const { cards } = allCards();
                 </template>
 
                 <template #hashtag>
-                    <ul class="flex gap-2 first-of-type:ml-0 text-sm py-12px px-12px">
+                    <ul class="flex flex-wrap gap-2 text-sm py-12px px-12px">
                         <li class="text-aqua bg-darkBlue px-[5px] rounded-sm" v-for="hashtag of card.hashtags"
                             :key="card.id">
                             #{{ hashtag.hash }}
@@ -34,7 +34,7 @@ const { cards } = allCards();
                 </template>
 
                 <template #title>
-                    <div class="block pb-12px px-12px text-lg">
+                    <div class="block pb-12px px-12px text-lg text-18px">
                         {{ card.title }}
                     </div>
                 </template>
@@ -64,7 +64,7 @@ const { cards } = allCards();
         </div>
 
         <RouterLink to="/projects" class="hover:opacity-50 transition-all">
-            <span class="flex gap-[8px] text-lg text-aqua justify-end mt-18px">
+            <span class="flex gap-[8px] text-lg text-aqua items-center justify-end mt-18px text-[15px]">
                 <img src="../assets/arrow.svg" alt="" />
                 More
             </span>
@@ -79,7 +79,7 @@ const { cards } = allCards();
                 </template>
 
                 <template #hashtag>
-                    <ul class="flex gap-2 first-of-type:ml-0 text-sm py-12px px-12px">
+                    <ul class="flex flex-wrap gap-2 text-sm py-12px px-12px">
                         <li class="text-aqua bg-darkBlue px-[5px] rounded-sm" v-for="hashtag of card.hashtags"
                             :key="card.id">
                             #{{ hashtag.hash }}
@@ -88,7 +88,7 @@ const { cards } = allCards();
                 </template>
 
                 <template #title>
-                    <div class="block pb-12px px-12px text-lg">
+                    <div class="block pb-12px px-12px text-lg text-18px">
                         {{ card.title }}
                     </div>
                 </template>
@@ -110,7 +110,7 @@ const { cards } = allCards();
         </div>
 
         <RouterLink to="/projects" class="hover:opacity-50 transition-all">
-            <span class="flex gap-[8px] text-lg text-aqua justify-end mt-18px">
+            <span class="flex gap-[8px] text-lg text-aqua items-center justify-end mt-18px text-[15px]">
                 <img src="../assets/arrow.svg" alt="" />
                 More
             </span>

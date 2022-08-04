@@ -46,7 +46,7 @@ const toggleNav = () => {
           flex-col
           mt-14px
           gap-0
-          md:flex md:space-y-0 md:flex-row md:items-center md:gap-20px md:mt-0 uppercase font-medium
+          md:flex md:space-y-0 md:flex-row md:items-center md:gap-20px md:mt-0 uppercase 
         ">
         <li>
           <RouterLink to="/">Home</RouterLink>
@@ -78,8 +78,10 @@ a {
   display: block;
   text-align: center;
   transition-property: all;
-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 a:hover {
@@ -98,8 +100,6 @@ a:hover {
     margin: 0;
     padding: 14px 0;
     border-top: 1px solid #070B0D;
-    font-size: 14px;
-    font-weight: 600;
   }
   
 }

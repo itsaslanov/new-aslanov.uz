@@ -126,6 +126,12 @@ export function allCards() {
         {
           hash: "Firebase",
         },
+        {
+          hash: "Firebase",
+        },
+        {
+          hash: "Firebase",
+        },
       ],
       github: "https://www.github.com/",
       behance: "https://www.behance.net/",

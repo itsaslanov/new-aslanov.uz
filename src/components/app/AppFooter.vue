@@ -9,7 +9,7 @@
           flex
           gap-10px
           md:gap-20px
-          uppercase font-medium
+          uppercase 
         ">
           <li>
             <RouterLink to="/">Home</RouterLink>
@@ -47,7 +47,7 @@
       <div class="w-[100%] mx-auto bg-lightBlue h-[1px] mt-24px"></div>
 
       <div class="flex justify-center mt-24px">
-        <span class="text-[14px] text-[#DADADA] font-semibold tracking-[1px] flex gap-1">Designed and built by Aslanov
+        <span class="text-[14px] text-[#DADADA] tracking-[1px] flex gap-1">Designed and built by Aslanov
           <img src="../../assets/stars.png" class="w-[22px]" alt="">
         </span>
       </div>
@@ -68,19 +68,13 @@ a {
   display: block;
   text-align: center;
   transition-property: all;
-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 a:hover {
   opacity: 0.5;
-}
-
-@media only screen and (max-width: 768px) {
-
-  a {
-    font-size: 14px;
-    font-weight: 600;
-  }
 }
 </style>

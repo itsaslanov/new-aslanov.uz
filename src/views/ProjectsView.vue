@@ -11,7 +11,7 @@ const { cards } = allCards();
 <template>
     <div class="max-w-[1080px] px-24px xl:px-0 mx-auto">
 
-        <BaseBadge class="mt-14px" contentText="Front-end projects" :badge="false" />
+        <BaseBadge class="mt-[14px] md:mt-[0px]" contentText="Front-end projects" :badge="false" />
 
         <div class="grid-system mt-14px">
             <BaseCard v-for="card of cards" :key="card.id" class="hover:opacity-90">
@@ -20,7 +20,7 @@ const { cards } = allCards();
                 </template>
 
                 <template #hashtag>
-                    <ul class="flex gap-2 first-of-type:ml-0 text-sm py-12px px-12px">
+                    <ul class="flex flex-wrap gap-2 text-sm py-12px px-12px">
                         <li class="text-aqua bg-darkBlue px-[5px] rounded-sm" v-for="hashtag of card.hashtags"
                             :key="card.id">
                             #{{ hashtag.hash }}
@@ -67,7 +67,7 @@ const { cards } = allCards();
                 </template>
 
                 <template #hashtag>
-                    <ul class="flex gap-2 first-of-type:ml-0 text-sm py-12px px-12px">
+                    <ul class="flex flex-wrap gap-2 text-sm py-12px px-12px">
                         <li class="text-aqua bg-darkBlue px-[5px] rounded-sm" v-for="hashtag of card.hashtags"
                             :key="card.id">
                             #{{ hashtag.hash }}
@@ -98,3 +98,10 @@ const { cards } = allCards();
         </div>
     </div>
 </template>
+
+<style>
+.custom-flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+</style>
