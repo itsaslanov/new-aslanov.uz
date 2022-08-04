@@ -1,7 +1,7 @@
 <script setup></script>
 <template>
   <footer class="bg-gray py-24px">
-    <div class="max-w-[1080px] px-24px xl:px-0 mx-auto">
+    <div class="max-w-[1080px] px-12px xl:px-0 mx-auto">
       <div class="flex gap-[24px] flex-col md:flex-row md:justify-between items-center">
         <ul class="
           self-start

@@ -9,7 +9,7 @@ const { cards } = allCards();
 </script>
 
 <template>
-    <div class="max-w-[1080px] px-24px xl:px-0 mx-auto">
+    <div class="max-w-[1080px] px-12px xl:px-0 mx-auto">
 
         <BaseBadge class="mt-[14px] md:mt-[0px]" contentText="Front-end projects" :badge="false" />
 
