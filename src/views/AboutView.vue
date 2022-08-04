@@ -70,7 +70,7 @@ const { fullName, job, aboutPersonSelf, frontEndSkills, uiDesignSkills, certific
 </script>
 
 <template>
-    <div class="max-w-[1080px] px-12px xl:px-0 mx-auto">
+    <div class="max-w-[1080px] px-[14px] xl:px-0 mx-auto">
         <div class="flex flex-col md:flex-row gap-12px md:gap-20px mt-[14px] md:mt-[0px]">
             <div class="w-full md:max-w-[275px]">
                 <img src="../assets/person.png" class="w-full border border-lightBlue rounded-6px custom-box-shadow">

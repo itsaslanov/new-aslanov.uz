@@ -13,7 +13,7 @@ const { cards } = allCards();
 </script>
 
 <template>
-    <div class="max-w-[1080px] px-12px xl:px-0 mx-auto">
+    <div class="max-w-[1080px] px-[14px] xl:px-0 mx-auto">
         <AppHeader class="mt-[14px] md:mt-[0px]" />
 
         <BaseBadge class="mt-14px" contentText="Front-end projects" :badge="true" />
@@ -62,13 +62,15 @@ const { cards } = allCards();
                 </template>
             </BaseCard>
         </div>
-
+        
+        <div class="flex items-center justify-end">
         <RouterLink to="/projects" class="hover:opacity-50 transition-all">
-            <span class="flex gap-[8px] text-lg text-aqua items-center justify-end mt-18px text-[15px]">
+            <span class="flex gap-[8px] text-lg text-aqua  mt-18px text-[15px]">
                 <img src="../assets/arrow.svg" alt="" />
                 More
             </span>
         </RouterLink>
+        </div>
 
         <BaseBadge contentText="UI design projects" :badge="true" />
 
@@ -108,13 +110,14 @@ const { cards } = allCards();
                 </template>
             </BaseCard>
         </div>
-
+        <div class="flex items-center justify-end">
         <RouterLink to="/projects" class="hover:opacity-50 transition-all">
-            <span class="flex gap-[8px] text-lg text-aqua items-center justify-end mt-18px text-[15px]">
+            <span class="flex gap-[8px] text-lg text-aqua mt-18px text-[15px]">
                 <img src="../assets/arrow.svg" alt="" />
                 More
             </span>
         </RouterLink>
+        </div>
     </div>
 
 </template>
