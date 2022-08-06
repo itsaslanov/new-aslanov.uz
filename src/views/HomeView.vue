@@ -1,34 +1,72 @@
 <script setup>
-import { } from 'vue';
+import { ref, onMounted } from 'vue';
+
+import { collection, onSnapshot } from "firebase/firestore";
+import { getFirestoreDb } from '../firebase/index';
 
 import AppHeader from '../components/app/AppHeader.vue'
 import BaseBadge from '../components/base/BaseBadge.vue'
 import BaseCard from '../components/base/BaseCard.vue'
 import BaseButton from '../components/base/BaseButton.vue'
 
-import { allCards } from '../use/cards'
+// import { allCards } from '../use/cards'
 
-const { cards } = allCards();
+// const { cards } = allCards();
+
+const programmingType = ref([]);
+const designingType = ref([]);
+
+
+// Get data from firestore
+onMounted(() => {
+    const querySnapshotForRealTime = collection(getFirestoreDb, "cards",);
+    onSnapshot(querySnapshotForRealTime, (querySnapshot) => {
+
+        programmingType.value = [];
+        designingType.value = [];
+
+        querySnapshot.forEach((doc) => {
+            if (doc.data().type === 'programming') {
+                programmingType.value.push({
+                    id: doc.data().id,
+                    img: doc.data().img,
+                    tags: doc.data().tags,
+                    title: doc.data().title,
+                    gitLink: doc.data().gitLink
+                });
+            }
+
+            if (doc.data().type === 'designing') {
+                designingType.value.push({
+                    id: doc.data().id,
+                    img: doc.data().img,
+                    tags: doc.data().tags,
+                    title: doc.data().title,
+                    liveLink: doc.data().liveLink
+                });
+            }
+        });
+    });
+});
+
 
 </script>
 
 <template>
     <div class="max-w-[1080px] px-[14px] xl:px-0 mx-auto">
-        <AppHeader class="mt-[14px] md:mt-[0px]" />
-
-        <BaseBadge class="mt-14px" contentText="Front-end projects" :badge="true" />
+        <!-- <AppHeader class="mt-[14px] md:mt-[0px]" />
+        <BaseBadge class="mt-14px" contentText="Front-end projects" :badge="true" /> -->
 
         <div class="grid-system mt-14px">
-            <BaseCard v-for="card of cards.slice(0, 4)" :key="card.id" class="hover:opacity-90">
+            <BaseCard v-for="card of programmingType" :key="card.id" class="hover:opacity-90">
                 <template #image>
-                    <img src="../assets/img/project.png" class="rounded-t-6px" alt="" />
+                    <img :src="card.img" class="rounded-t-6px" alt="" />
                 </template>
 
                 <template #hashtag>
                     <ul class="flex flex-wrap gap-2 text-sm py-12px px-12px">
-                        <li class="text-aqua bg-darkBlue px-[5px] rounded-sm" v-for="hashtag of card.hashtags"
-                            :key="card.id">
-                            #{{ hashtag.hash }}
+                        <li class="text-aqua bg-darkBlue px-[5px] rounded-sm" v-for="tag of card.tags" :key="tag">
+                            #{{ tag }}
                         </li>
                     </ul>
                 </template>
@@ -45,36 +83,40 @@ const { cards } = allCards();
                     </div>
 
                     <div class="pb-12px px-12px md:flex md:gap-8px md:justify-center">
-                        <BaseButton color="default">
-                            <a :href="card.github" class="flex gap-[8px]" target="_blank">
+
+                        <a :href="card.gitLink" class="w-full" target="_blank">
+                            <BaseButton color="default" class="flex gap-[8px]">
                                 <img src="../assets/github.svg" alt="github" class="w-[20px]" />
                                 <span>Github</span>
-                            </a>
-                        </BaseButton>
+                            </BaseButton>
+                        </a>
+
                         <div class="h-[10px] block md:h-[0px] md:hidden"></div>
-                        <BaseButton color="primary">
-                            <a :href="card.behance" class="flex gap-[8px]" target="_blank">
-                                <img src="../assets/eye-line.svg" alt="github" class="w-[20px]" />
+
+
+                        <a :href="card.liveLink" class="w-full" target="_blank">
+                            <BaseButton color="primary" class="flex gap-[8px]">
+                                <img src="../assets/eye-line.svg" alt="eye-line" class="w-[20px]" />
                                 <span>Preview</span>
-                            </a>
-                        </BaseButton>
+                            </BaseButton>
+                        </a>
                     </div>
                 </template>
             </BaseCard>
         </div>
-        
+        <!-- 
         <div class="flex items-center justify-end">
-        <RouterLink to="/projects" class="hover:opacity-50 transition-all">
-            <span class="flex gap-[8px] text-lg text-aqua  mt-18px text-[15px]">
-                <img src="../assets/arrow.svg" alt="" />
-                More
-            </span>
-        </RouterLink>
+            <RouterLink to="/projects" class="hover:opacity-50 transition-all">
+                <span class="flex gap-[8px] text-lg text-aqua  mt-18px text-[15px]">
+                    <img src="../assets/arrow.svg" alt="" />
+                    More
+                </span>
+            </RouterLink>
         </div>
 
-        <BaseBadge contentText="UI design projects" :badge="true" />
+        <BaseBadge contentText="UI design projects" :badge="true" /> -->
 
-        <div class="grid-system mt-14px">
+        <!-- <div class="grid-system mt-14px">
             <BaseCard v-for="card of cards.slice(0, 4)" :key="card.id" class="hover:opacity-90">
                 <template #image>
                     <img src="../assets/img/project.png" class="rounded-t-6px" alt="" />
@@ -109,15 +151,15 @@ const { cards } = allCards();
                     </div>
                 </template>
             </BaseCard>
-        </div>
-        <div class="flex items-center justify-end">
-        <RouterLink to="/projects" class="hover:opacity-50 transition-all">
-            <span class="flex gap-[8px] text-lg text-aqua mt-18px text-[15px]">
-                <img src="../assets/arrow.svg" alt="" />
-                More
-            </span>
-        </RouterLink>
-        </div>
+        </div> -->
+        <!-- <div class="flex items-center justify-end">
+            <RouterLink to="/projects" class="hover:opacity-50 transition-all">
+                <span class="flex gap-[8px] text-lg text-aqua mt-18px text-[15px]">
+                    <img src="../assets/arrow.svg" alt="" />
+                    More
+                </span>
+            </RouterLink>
+        </div> -->
     </div>
 
 </template>
