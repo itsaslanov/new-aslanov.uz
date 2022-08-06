@@ -102,11 +102,14 @@ export default {
 <template>
   <div class="max-w-[650px] px-[14px] xl:px-0 mx-auto mt-3 md:mt-0">
     <div class="w-full bg-white flex mb-[32px]">
-      <button class="custom-btn uppercase" @click="setSelectedTab('AppProgramming')" :class="programming">programming</button>
+      <button class="custom-btn uppercase" @click="setSelectedTab('AppProgramming')"
+        :class="programming">programming</button>
       <button class="custom-btn uppercase" @click="setSelectedTab('AppDesigning')" :class="designing">designing</button>
     </div>
 
-    <component :is="selectedTab" />
+    <KeepAlive>
+      <component :is="selectedTab" />
+    </KeepAlive>
   </div>
 </template>
 
@@ -114,7 +117,7 @@ export default {
 .bg-white {
   background-color: #fff;
   border-radius: 50%;
-    box-shadow: 0px 0px 20px rgba(240, 240, 240, 0.082);
+  box-shadow: 0px 0px 20px rgba(240, 240, 240, 0.082);
 }
 
 .custom-btn {
