@@ -30,7 +30,7 @@ onMounted(() => {
                 programmingType.value.push({
                     id: doc.data().id,
                     img: doc.data().img,
-                    tags: doc.data().tags,
+                    hashtags: doc.data().hashtags,
                     title: doc.data().title,
                     gitLink: doc.data().gitLink
                 });
@@ -42,7 +42,7 @@ onMounted(() => {
                     img: doc.data().img,
                     tags: doc.data().tags,
                     title: doc.data().title,
-                    liveLink: doc.data().liveLink
+                    previewLink: doc.data().previewLink
                 });
             }
         });
@@ -58,7 +58,7 @@ onMounted(() => {
         <BaseBadge class="mt-14px" contentText="Front-end projects" :badge="true" /> -->
 
         <div class="grid-system mt-14px">
-            <BaseCard v-for="card of programmingType" :key="card.id" class="hover:opacity-90">
+            <BaseCard v-for="card of designingType" :key="card.id" class="hover:opacity-90">
                 <template #image>
                     <img :src="card.img" class="rounded-t-6px" alt="" />
                 </template>
@@ -94,7 +94,7 @@ onMounted(() => {
                         <div class="h-[10px] block md:h-[0px] md:hidden"></div>
 
 
-                        <a :href="card.liveLink" class="w-full" target="_blank">
+                        <a :href="card.previewLink" class="w-full" target="_blank">
                             <BaseButton color="primary" class="flex gap-[8px]">
                                 <img src="../assets/eye-line.svg" alt="eye-line" class="w-[20px]" />
                                 <span>Preview</span>
@@ -124,7 +124,7 @@ onMounted(() => {
 
                 <template #hashtag>
                     <ul class="flex flex-wrap gap-2 text-sm py-12px px-12px">
-                        <li class="text-aqua bg-darkBlue px-[5px] rounded-sm" v-for="hashtag of card.hashtags"
+                        <li class="text-aqua bg-darkBlue px-[5px] rounded-sm" v-for="hashtag of card.hashhashtags"
                             :key="card.id">
                             #{{ hashtag.hash }}
                         </li>

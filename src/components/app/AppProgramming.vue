@@ -1,5 +1,5 @@
 <script setup>
-  import BaseButton from '../base/BaseButton.vue';
+import BaseButton from '../base/BaseButton.vue';
 </script>
 
 <template>
@@ -29,7 +29,7 @@
         class="border-[2px] px-[12px] py-[6px] w-full rounded border-aqua bg-black outline-none block" />
     </label>
     <label class="block">
-      <span class="block text-[14px] font-medium text-slate-700 mb-[4px] opacity-40">Preview link:</span>
+      <span class="block text-[14px] font-medium text-slate-700 mb-[4px] opacity-40">Preview link(Netlify):</span>
       <input type="text"
         class="border-[2px] px-[12px] py-[6px] w-full rounded border-aqua bg-black outline-none block" />
     </label>
