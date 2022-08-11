@@ -90,7 +90,7 @@ onMounted(() => {
 
                         <a :href="card.githubLink" class="w-full" target="_blank">
                             <BaseButton color="default" class="flex gap-[8px]">
-                                <img src="../assets/github.svg" alt="github" class="w-[20px]" />
+                                <img src="../assets/github.svg" alt="github" class="w-[20px] self-center" />
                                 <span>Github</span>
                             </BaseButton>
                         </a>
@@ -100,7 +100,7 @@ onMounted(() => {
 
                         <a :href="card.previewLink" class="w-full" target="_blank">
                             <BaseButton color="primary" class="flex gap-[8px]">
-                                <img src="../assets/eye-line.svg" alt="eye-line" class="w-[20px]" />
+                                <img src="../assets/eye-line.svg" alt="eye-line" class="w-[20px] self-center" />
                                 <span>Preview</span>
                             </BaseButton>
                         </a>
@@ -148,7 +148,7 @@ onMounted(() => {
                     <div class="pb-12px px-12px md:flex md:gap-8px md:justify-center">
                         <BaseButton color="secondary">
                             <a :href="card.previewLink" class="flex gap-[8px]" target="_blank">
-                                <img src="../assets/behance.svg" alt="github" class="w-[20px]" />
+                                <img src="../assets/behance.svg" alt="github" class="w-[20px] self-center" />
                                 <span>Behance</span>
                             </a>
                         </BaseButton>

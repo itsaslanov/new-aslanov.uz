@@ -3,25 +3,18 @@ import { ref, computed } from "vue";
 import {
   ref as firebaseRef,
   uploadBytesResumable,
-  getDownloadURL,
+  getDownloadURL
 } from "firebase/storage";
 
 import { getStorageDb } from "../../firebase/index";
 import { getFirestoreDb } from "../../firebase/index";
-
 import { collection, addDoc } from "firebase/firestore";
-
-import BaseButton from '../base/BaseButton.vue';
-
-
+import BaseButton from "../base/BaseButton.vue";
 
 // Card's description
 const hashtags = ref([]);
-const title = ref('');
-const previewLink = ref('');
-
-// Type, it could be either programming type or designing one
-const type = ref('designing');
+const title = ref("");
+const previewLink = ref("");
 
 // Upload a single image
 const uploadImg = ref(null);
@@ -31,18 +24,17 @@ const hashtagsInput = computed({
   get: () => hashtags.value.map((item) => `#${item}`).join(" "),
   set: (value) => {
     hashtags.value = value.split(" ").map((item) => item.replace("#", ""));
-  }
+  },
 });
-
 
 // Uploading image process
 const onImageUploadStatusChanged = (snapshot) => {
   uploadValue.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 };
 
-const onHashtagInputBlur = () => { 
+const onHashtagInputBlur = () => {
   hashtags.value = hashtags.value.filter((item) => item && item.trim());
-}
+};
 
 // Uploaded image with its own link
 const uploadImage = async (file) => {
@@ -69,25 +61,22 @@ const addUserToFirebase = async (card) => {
 const onSubmit = async () => {
   // Call uploaded img function
   const imageUrl = await uploadImage(uploadImg.value.files[0]);
+  // Type
+  const type = "designing";
 
   await addUserToFirebase({
     img: imageUrl,
     hashtags: hashtags.value,
     title: title.value,
     previewLink: previewLink.value,
-    type: type.value
+    type: type,
   });
 
-  console.log(addUserToFirebase())
-
   // Clear value
-  hashtags.value = [];
+  hashtags.value = '';
   title.value = "";
   previewLink.value = "";
-  type.value = "";
 };
-
-
 </script>
 
 <template>
@@ -103,7 +92,7 @@ const onSubmit = async () => {
 
     <label class="block">
       <span class="block text-[14px] font-medium text-slate-700 mb-[4px] opacity-40">Hashtags:</span>
-      <input v-model="hashtagsInput" @blur="onHashtagInputBlur" @keyup.delete="onHashtagInputBlur" type="text"
+      <input v-model="hashtagsInput" @blur="onHashtagInputBlur" type="text"
         class="border-[2px] px-[12px] py-[6px] w-full rounded border-aqua bg-black outline-none block text-aqua" />
     </label>
     <label class="block">
@@ -122,8 +111,8 @@ const onSubmit = async () => {
 
 <style scoped>
 .bg-aqua {
-  background-color: #86F3DF !important;
-  color: #070B0D;
+  background-color: #86f3df !important;
+  color: #070b0d;
   font-weight: 600;
   padding: 10px 0px !important;
 }
@@ -135,5 +124,4 @@ label:focus-within .opacity-40 {
 .custom-transform {
   transform: translate(-50%, -50%);
 }
-
 </style>

@@ -17,9 +17,6 @@ const title = ref('');
 const githubLink = ref('');
 const previewLink = ref('');
 
-// Type, it could be either programming type or designing one
-const type = ref('programming');
-
 // Upload a single image
 const uploadImg = ref(null);
 const uploadValue = ref(0);
@@ -65,22 +62,25 @@ const addUserToFirebase = async (card) => {
 const onSubmit = async () => {
   // Call uploaded img function
   const imageUrl = await uploadImage(uploadImg.value.files[0]);
-
+  // Type
+  const type = "programming";
+  
   await addUserToFirebase({
     img: imageUrl,
     tags: hashtags.value,
     title: title.value,
     githubLink: githubLink.value, 
     previewLink: previewLink.value,
-    type: type.value
+    type: type
   });
+
+
 
   // Clear value
   hashtags.value = [];
   title.value = "";
   githubLink.value = "";
   previewLink.value = "";
-  type.value = "";
 };
 
 </script>
