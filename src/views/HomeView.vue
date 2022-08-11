@@ -32,7 +32,8 @@ onMounted(() => {
                     img: doc.data().img,
                     hashtags: doc.data().hashtags,
                     title: doc.data().title,
-                    gitLink: doc.data().gitLink
+                    githubLink: doc.data().githubLink,
+                    previewLink: doc.data().previewLink
                 });
             }
 
@@ -40,7 +41,7 @@ onMounted(() => {
                 designingType.value.push({
                     id: doc.data().id,
                     img: doc.data().img,
-                    tags: doc.data().tags,
+                    hashtags: doc.data().hashtags,
                     title: doc.data().title,
                     previewLink: doc.data().previewLink
                 });
@@ -54,19 +55,22 @@ onMounted(() => {
 
 <template>
     <div class="max-w-[1080px] px-[14px] xl:px-0 mx-auto">
-        <!-- <AppHeader class="mt-[14px] md:mt-[0px]" />
-        <BaseBadge class="mt-14px" contentText="Front-end projects" :badge="true" /> -->
-
+        <!-- Header -->
+        <AppHeader class="mt-[14px] md:mt-[0px]" />
+        <!-- Badge for programming -->
+        <BaseBadge class="mt-14px" contentText="Front-end projects" :badge="true" />
+        <!-- Cards for programming -->
         <div class="grid-system mt-14px">
-            <BaseCard v-for="card of designingType" :key="card.id" class="hover:opacity-90">
+            <BaseCard v-for="card of programmingType" :key="card.id" class="hover:opacity-90">
                 <template #image>
                     <img :src="card.img" class="rounded-t-6px" alt="" />
                 </template>
 
                 <template #hashtag>
                     <ul class="flex flex-wrap gap-2 text-sm py-12px px-12px">
-                        <li class="text-aqua bg-darkBlue px-[5px] rounded-sm" v-for="tag of card.tags" :key="tag">
-                            #{{ tag }}
+                        <li class="text-aqua bg-darkBlue px-[5px] rounded-sm" v-for="hashtag of card.hashtags"
+                            :key="hashtag">
+                            #{{ hashtag }}
                         </li>
                     </ul>
                 </template>
@@ -84,7 +88,7 @@ onMounted(() => {
 
                     <div class="pb-12px px-12px md:flex md:gap-8px md:justify-center">
 
-                        <a :href="card.gitLink" class="w-full" target="_blank">
+                        <a :href="card.githubLink" class="w-full" target="_blank">
                             <BaseButton color="default" class="flex gap-[8px]">
                                 <img src="../assets/github.svg" alt="github" class="w-[20px]" />
                                 <span>Github</span>
@@ -104,7 +108,7 @@ onMounted(() => {
                 </template>
             </BaseCard>
         </div>
-        <!-- 
+        <!-- More link for programming -->
         <div class="flex items-center justify-end">
             <RouterLink to="/projects" class="hover:opacity-50 transition-all">
                 <span class="flex gap-[8px] text-lg text-aqua  mt-18px text-[15px]">
@@ -113,20 +117,20 @@ onMounted(() => {
                 </span>
             </RouterLink>
         </div>
-
-        <BaseBadge contentText="UI design projects" :badge="true" /> -->
-
-        <!-- <div class="grid-system mt-14px">
-            <BaseCard v-for="card of cards.slice(0, 4)" :key="card.id" class="hover:opacity-90">
+        <!-- Badge for designing -->
+        <BaseBadge contentText="UI design projects" :badge="true" />
+        <!-- Cards for designing -->
+        <div class="grid-system mt-14px">
+            <BaseCard v-for="card of designingType" :key="card.id" class="hover:opacity-90">
                 <template #image>
-                    <img src="../assets/img/project.png" class="rounded-t-6px" alt="" />
+                    <img :src="card.img" class="rounded-t-6px" alt="" />
                 </template>
 
                 <template #hashtag>
                     <ul class="flex flex-wrap gap-2 text-sm py-12px px-12px">
-                        <li class="text-aqua bg-darkBlue px-[5px] rounded-sm" v-for="hashtag of card.hashhashtags"
-                            :key="card.id">
-                            #{{ hashtag.hash }}
+                        <li class="text-aqua bg-darkBlue px-[5px] rounded-sm" v-for="hashtag of card.hashtags"
+                            :key="hashtag">
+                            #{{ hashtag }}
                         </li>
                     </ul>
                 </template>
@@ -143,7 +147,7 @@ onMounted(() => {
                     </div>
                     <div class="pb-12px px-12px md:flex md:gap-8px md:justify-center">
                         <BaseButton color="secondary">
-                            <a :href="card.behance" class="flex gap-[8px]" target="_blank">
+                            <a :href="card.previewLink" class="flex gap-[8px]" target="_blank">
                                 <img src="../assets/behance.svg" alt="github" class="w-[20px]" />
                                 <span>Behance</span>
                             </a>
@@ -151,15 +155,16 @@ onMounted(() => {
                     </div>
                 </template>
             </BaseCard>
-        </div> -->
-        <!-- <div class="flex items-center justify-end">
+        </div>
+        <!-- More link for designing-->
+        <div class="flex items-center justify-end">
             <RouterLink to="/projects" class="hover:opacity-50 transition-all">
                 <span class="flex gap-[8px] text-lg text-aqua mt-18px text-[15px]">
                     <img src="../assets/arrow.svg" alt="" />
                     More
                 </span>
             </RouterLink>
-        </div> -->
+        </div>
     </div>
 
 </template>

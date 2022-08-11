@@ -72,7 +72,7 @@ const onSubmit = async () => {
 
   await addUserToFirebase({
     img: imageUrl,
-    tags: hashtags.value,
+    hashtags: hashtags.value,
     title: title.value,
     previewLink: previewLink.value,
     type: type.value
@@ -103,8 +103,8 @@ const onSubmit = async () => {
 
     <label class="block">
       <span class="block text-[14px] font-medium text-slate-700 mb-[4px] opacity-40">Hashtags:</span>
-      <input v-model="hashtagsInput" @blur="onHashtagInputBlur" @keyup.delete="onHashtagInputDelete" type="text"
-        class="border-[2px] px-[12px] py-[6px] w-full rounded border-aqua bg-black outline-none block" />
+      <input v-model="hashtagsInput" @blur="onHashtagInputBlur" @keyup.delete="onHashtagInputBlur" type="text"
+        class="border-[2px] px-[12px] py-[6px] w-full rounded border-aqua bg-black outline-none block text-aqua" />
     </label>
     <label class="block">
       <span class="block text-[14px] font-medium text-slate-700 mb-[4px] opacity-40 dd">Title:</span>
@@ -112,7 +112,7 @@ const onSubmit = async () => {
         class="border-[2px] px-[12px] py-[6px] w-full rounded border-aqua bg-black outline-none block" />
     </label>
     <label class="block">
-      <span class="block text-[14px] font-medium text-slate-700 mb-[4px] opacity-40">Video link:</span>
+      <span class="block text-[14px] font-medium text-slate-700 mb-[4px] opacity-40">Behance link:</span>
       <input v-model="previewLink" type="text"
         class="border-[2px] px-[12px] py-[6px] w-full rounded border-aqua bg-black outline-none block" />
     </label>
@@ -136,4 +136,5 @@ label:focus-within .opacity-40 {
 .custom-transform {
   transform: translate(-50%, -50%);
 }
+
 </style>
