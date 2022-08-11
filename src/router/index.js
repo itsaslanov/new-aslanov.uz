@@ -5,6 +5,8 @@ import ProjectsView from '../views/ProjectsView.vue'
 import ContactView from '../views/ContactView.vue'
 import AdminView from '../views/AdminView.vue'
 import LoginView from '../views/LoginView.vue'
+import { auth } from "@/firebase/index";
+import { onAuthStateChanged } from "firebase/auth";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -37,10 +39,36 @@ const router = createRouter({
     {
       path: '/admin',
       name: 'admin',
-      component: AdminView
+      component: AdminView,
+      meta: {
+        requiresAuth: true
+      }
     },
 
   ]
+})
+
+const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const removeListener = onAuthStateChanged(auth, (user) => {
+      removeListener();
+      resolve(user);
+    },
+      reject
+    )
+  })
+}
+
+router.beforeEach(async (to, from, next) => {
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    if (await getCurrentUser()) {
+      next()
+    } else {
+      next("/login")
+    }
+  } else {
+    next();
+  }
 })
 
 export default router

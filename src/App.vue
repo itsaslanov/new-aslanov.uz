@@ -2,15 +2,12 @@
 import { RouterView } from "vue-router";
 import AppNav from "./components/app/AppNav.vue";
 import AppFooter from "./components/app/AppFooter.vue";
-
-
-
 </script>
 
 <template>
   <AppNav />
   <RouterView />
-  <AppFooter class="mt-18px" />
+  <AppFooter class="mt-24px" />
 </template>
 
 <style>

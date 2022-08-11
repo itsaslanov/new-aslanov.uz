@@ -116,7 +116,7 @@ const onSubmit = async () => {
       <input v-model="previewLink" type="text"
         class="border-[2px] px-[12px] py-[6px] w-full rounded border-aqua bg-black outline-none block" />
     </label>
-    <BaseButton class="w-full bg-aqua">Post a new card</BaseButton>
+    <BaseButton class="w-full bg-aqua mb-[0px] md:mb-[64px]">Post a new card</BaseButton>
   </form>
 </template>
 
@@ -127,7 +127,6 @@ const onSubmit = async () => {
   font-weight: 600;
   padding: 10px 0px !important;
 }
-
 
 label:focus-within .opacity-40 {
   opacity: 1 !important;

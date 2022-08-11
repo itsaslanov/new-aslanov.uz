@@ -31,7 +31,6 @@ const hashtagsInput = computed({
   }
 });
 
-
 // Uploading image process
 const onImageUploadStatusChanged = (snapshot) => {
   uploadValue.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -69,14 +68,12 @@ const onSubmit = async () => {
 
   await addUserToFirebase({
     img: imageUrl,
-    hashtags: hashtags.value,
+    tags: hashtags.value,
     title: title.value,
     githubLink: githubLink.value, 
     previewLink: previewLink.value,
     type: type.value
   });
-
-  console.log(addUserToFirebase())
 
   // Clear value
   hashtags.value = [];

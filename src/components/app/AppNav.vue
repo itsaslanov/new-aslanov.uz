@@ -1,5 +1,8 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from "vue";
+import { auth } from "@/firebase/index";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { useRouter } from "vue-router";
 
 const pb0 = ref('')
 let showMenu = ref(false)
@@ -17,6 +20,27 @@ const toggleNav = () => {
     return showMenu.value = false
   }
 }
+
+
+const router = useRouter();
+const isLoggedIn = ref(false);
+
+const handleSignOut = () => {
+  signOut(auth).then(() => {
+    router.push("/");
+  });
+};
+
+onMounted(() => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      isLoggedIn.value = true;
+      router.push("/admin");
+    } else {
+      isLoggedIn.value = false;
+    }
+  });
+});
 
 </script>
 
@@ -60,6 +84,15 @@ const toggleNav = () => {
         <li>
           <RouterLink to="/contact">Contact</RouterLink>
         </li>
+        <li v-if="isLoggedIn">
+          <RouterLink to="/admin">Admin</RouterLink>
+        </li>
+        <li>
+          <button @click="handleSignOut"
+            class="button text-[14px] bg-lightRed py-[2px] p-2 rounded hover:opacity-50 uppercase" v-if="isLoggedIn">
+            Log out
+          </button>
+        </li>
       </ul>
     </nav>
   </div>
@@ -101,6 +134,6 @@ a:hover {
     padding: 14px 0;
     border-top: 1px solid #070B0D;
   }
-  
+
 }
 </style>
