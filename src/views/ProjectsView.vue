@@ -3,9 +3,8 @@ import BaseCard from '../components/base/BaseCard.vue';
 import BaseButton from '../components/base/BaseButton.vue';
 import BaseBadge from '../components/base/BaseBadge.vue';
 
-import { allCards } from '../use/cards'
 
-const { cards } = allCards();
+
 </script>
 
 <template>
@@ -13,7 +12,7 @@ const { cards } = allCards();
 
         <BaseBadge class="mt-[14px] md:mt-[0px]" contentText="Front-end projects" :badge="false" />
 
-        <div class="grid-system mt-14px">
+        <!-- <div class="grid-system mt-14px">
             <BaseCard v-for="card of cards" :key="card.id" class="hover:opacity-90">
                 <template #image>
                     <img src="../assets/img/project.png" class="rounded-t-6px" alt="" />
@@ -56,10 +55,10 @@ const { cards } = allCards();
                     </div>
                 </template>
             </BaseCard>
-        </div>
+        </div> -->
 
         <BaseBadge class="mt-14px" contentText="UI design projects" :badge="false" />
-
+<!-- 
         <div class="grid-system mt-14px">
             <BaseCard v-for="card of cards" :key="card.id" class="hover:opacity-90">
                 <template #image>
@@ -95,7 +94,7 @@ const { cards } = allCards();
                     </div>
                 </template>
             </BaseCard>
-        </div>
+        </div> -->
     </div>
 </template>
 

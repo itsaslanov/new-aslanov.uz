@@ -1,61 +1,13 @@
 <script setup>
-import { ref, computed } from "vue";
-import {
-  ref as firebaseRef,
-  uploadBytesResumable,
-  getDownloadURL
-} from "firebase/storage";
-
-import { getStorageDb } from "../../firebase/index";
-import { getFirestoreDb } from "../../firebase/index";
-import { collection, addDoc } from "firebase/firestore";
+import { ref } from "vue";
 import BaseButton from "../base/BaseButton.vue";
+import { firebaseAllData } from "../../use/firebaseAllData";
+
+const { uploadImg, hashtagsInput, onHashtagInputBlur, uploadImage, addCardToFirebase, hashtags } = firebaseAllData();
 
 // Card's description
-const hashtags = ref([]);
 const title = ref("");
 const previewLink = ref("");
-
-// Upload a single image
-const uploadImg = ref(null);
-const uploadValue = ref(0);
-
-const hashtagsInput = computed({
-  get: () => hashtags.value.map((item) => `#${item}`).join(" "),
-  set: (value) => {
-    hashtags.value = value.split(" ").map((item) => item.replace("#", ""));
-  },
-});
-
-// Uploading image process
-const onImageUploadStatusChanged = (snapshot) => {
-  uploadValue.value = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-};
-
-const onHashtagInputBlur = () => {
-  hashtags.value = hashtags.value.filter((item) => item && item.trim());
-};
-
-// Uploaded image with its own link
-const uploadImage = async (file) => {
-  const fileRef = firebaseRef(getStorageDb, file.name);
-  const uploadTask = uploadBytesResumable(fileRef, file);
-  const progressUnsubscribe = uploadTask.on("state_changed", onImageUploadStatusChanged);
-
-  return new Promise((resolve, reject) => {
-    uploadTask
-      .then((snapshot) => {
-        progressUnsubscribe();
-        resolve(getDownloadURL(snapshot.ref));
-      })
-      .catch(reject);
-  });
-};
-
-// Add user to Firebase
-const addUserToFirebase = async (card) => {
-  return await addDoc(collection(getFirestoreDb, "cards"), card);
-};
 
 // Send all data to Firestore
 const onSubmit = async () => {
@@ -64,7 +16,7 @@ const onSubmit = async () => {
   // Type
   const type = "designing";
 
-  await addUserToFirebase({
+  await addCardToFirebase({
     img: imageUrl,
     hashtags: hashtags.value,
     title: title.value,
@@ -73,7 +25,7 @@ const onSubmit = async () => {
   });
 
   // Clear value
-  hashtags.value = '';
+  hashtags.value = [];
   title.value = "";
   previewLink.value = "";
 };

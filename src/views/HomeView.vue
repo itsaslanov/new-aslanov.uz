@@ -113,7 +113,7 @@ onMounted(() => {
             <RouterLink to="/projects" class="hover:opacity-50 transition-all">
                 <span class="flex gap-[8px] text-lg text-aqua  mt-18px text-[15px]">
                     <img src="../assets/arrow.svg" alt="" />
-                    More
+                    View more
                 </span>
             </RouterLink>
         </div>
@@ -161,7 +161,7 @@ onMounted(() => {
             <RouterLink to="/projects" class="hover:opacity-50 transition-all">
                 <span class="flex gap-[8px] text-lg text-aqua mt-18px text-[15px]">
                     <img src="../assets/arrow.svg" alt="" />
-                    More
+                    View more
                 </span>
             </RouterLink>
         </div>

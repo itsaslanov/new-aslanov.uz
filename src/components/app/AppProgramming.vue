@@ -15,7 +15,7 @@ import BaseButton from '../base/BaseButton.vue';
 const hashtags = ref([]);
 const title = ref('');
 const githubLink = ref('');
-const previewLink = ref('');
+const previewLink = ref("");
 
 // Upload a single image
 const uploadImg = ref(null);
@@ -73,8 +73,6 @@ const onSubmit = async () => {
     previewLink: previewLink.value,
     type: type
   });
-
-
 
   // Clear value
   hashtags.value = [];
