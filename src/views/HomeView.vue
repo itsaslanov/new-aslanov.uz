@@ -9,9 +9,6 @@ import BaseBadge from '../components/base/BaseBadge.vue'
 import BaseCard from '../components/base/BaseCard.vue'
 import BaseButton from '../components/base/BaseButton.vue'
 
-// import { allCards } from '../use/cards'
-
-// const { cards } = allCards();
 
 const programmingType = ref([]);
 const designingType = ref([]);

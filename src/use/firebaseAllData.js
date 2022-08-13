@@ -9,12 +9,17 @@ import { getFirestoreDb } from "../firebase/index";
 import { collection, addDoc } from "firebase/firestore";
 
 export function firebaseAllData() {
+  // Card's hashtags, title and links
+  const title = ref("");
+  const previewLink = ref("");
+  const githubLink = ref("");
+  const hashtags = ref([]);
+
   // upload a single image
   const uploadImg = ref(null);
   const uploadValue = ref(0);
-  
+
   // for hashtag
-  const hashtags = ref([]);
   const hashtagsInput = computed({
     get: () => hashtags.value.map((item) => `#${item}`).join(" "),
     set: (value) => {
@@ -53,6 +58,10 @@ export function firebaseAllData() {
   };
 
   return {
+    title,
+    previewLink,
+    hashtags,
+    githubLink,
     uploadImg,
     uploadValue,
     hashtagsInput,
@@ -60,6 +69,5 @@ export function firebaseAllData() {
     onImageUploadStatusChanged,
     uploadImage,
     addCardToFirebase,
-    hashtags
   }
 }

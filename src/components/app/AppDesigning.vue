@@ -1,13 +1,8 @@
 <script setup>
-import { ref } from "vue";
 import BaseButton from "../base/BaseButton.vue";
 import { firebaseAllData } from "../../use/firebaseAllData";
 
-const { uploadImg, hashtagsInput, onHashtagInputBlur, uploadImage, addCardToFirebase, hashtags } = firebaseAllData();
-
-// Card's description
-const title = ref("");
-const previewLink = ref("");
+const { title, previewLink, hashtags, uploadImg, hashtagsInput, onHashtagInputBlur, uploadImage, addCardToFirebase } = firebaseAllData();
 
 // Send all data to Firestore
 const onSubmit = async () => {
