@@ -20,3 +20,9 @@ body {
 img {
   pointer-events: none !important;
 }
+
+.custom-checkbox {
+  accent-color: #86F3DF;
+  width: 20px;
+  height: 20px;
+}

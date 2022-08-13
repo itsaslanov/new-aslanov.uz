@@ -4,18 +4,23 @@ import { ref, onMounted } from 'vue';
 import BaseCard from '../components/base/BaseCard.vue';
 import BaseButton from '../components/base/BaseButton.vue';
 import BaseBadge from '../components/base/BaseBadge.vue';
+import BasePlaceHolder from '../components/base/BasePlaceHolder.vue';
 
-import { collection, onSnapshot } from "firebase/firestore";
+import { onSnapshot, collection, query, orderBy } from "firebase/firestore";
 import { getFirestoreDb } from '../firebase/index';
+
+const loading = ref(false);
 
 const programmingType = ref([]);
 const designingType = ref([]);
 
 // Get data from firestore
 onMounted(() => {
-    const querySnapshotForRealTime = collection(getFirestoreDb, "cards",);
-    onSnapshot(querySnapshotForRealTime, (querySnapshot) => {
+    const collectionOfRef = collection(getFirestoreDb, "cards");
+    const collectionOfQuery = query(collectionOfRef, orderBy("date"));
+    onSnapshot(collectionOfQuery, (querySnapshot) => {
 
+        loading.value = true;
         programmingType.value = [];
         designingType.value = [];
 
@@ -42,6 +47,7 @@ onMounted(() => {
             }
         });
     });
+    loading.value = false;
 });
 </script>
 
@@ -49,6 +55,10 @@ onMounted(() => {
     <div class="max-w-[1080px] px-[14px] xl:px-0 mx-auto">
         <!-- Badge for programming -->
         <BaseBadge class="mt-[14px] md:mt-[0px]" contentText="Front-end projects" :badge="false" />
+        <!-- Placeholder for programming  -->
+        <div v-if="!loading" class="grid-system mt-14px">
+            <BasePlaceHolder v-for="placeholder in 4" :key="placeholder.id" />
+        </div>
         <!-- Cards for programming -->
         <div class="grid-system mt-14px">
             <BaseCard v-for="card of programmingType" :key="card.id" class="hover:opacity-90">
@@ -100,6 +110,10 @@ onMounted(() => {
         </div>
         <!-- Badge for designing -->
         <BaseBadge class="mt-14px" contentText="UI design projects" :badge="false" />
+        <!-- Placeholder for designing  -->
+        <div v-if="!loading" class="grid-system mt-14px">
+            <BasePlaceHolder v-for="placeholder in 4" :key="placeholder.id" />
+        </div>
         <!-- Cards for designing -->
         <div class="grid-system mt-14px">
             <BaseCard v-for="card of designingType" :key="card.id" class="hover:opacity-90">

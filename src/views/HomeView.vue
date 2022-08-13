@@ -1,26 +1,27 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, query, orderBy, onSnapshot, where } from "firebase/firestore";
 import { getFirestoreDb } from '../firebase/index';
 
-import AppHeader from '../components/app/AppHeader.vue'
-import BaseBadge from '../components/base/BaseBadge.vue'
-import BaseCard from '../components/base/BaseCard.vue'
-import BaseButton from '../components/base/BaseButton.vue'
-
-
+import AppHeader from '../components/app/AppHeader.vue';
+import BaseBadge from '../components/base/BaseBadge.vue';
+import BaseCard from '../components/base/BaseCard.vue';
+import BaseButton from '../components/base/BaseButton.vue';
+import BasePlaceHolder from '../components/base/BasePlaceHolder.vue';
+const loading = ref(false);
 const programmingType = ref([]);
 const designingType = ref([]);
 
-
 // Get data from firestore
 onMounted(() => {
-    const querySnapshotForRealTime = collection(getFirestoreDb, "cards",);
-    onSnapshot(querySnapshotForRealTime, (querySnapshot) => {
-
+    const collectionOfRef = collection(getFirestoreDb, "cards");
+    const collectionOfQuery = query(collectionOfRef, where("limited", "==", true), orderBy("date", "desc"));
+    onSnapshot(collectionOfQuery, (querySnapshot) => {
         programmingType.value = [];
         designingType.value = [];
+
+        loading.value = true;
 
         querySnapshot.forEach((doc) => {
             if (doc.data().type === 'programming') {
@@ -45,6 +46,7 @@ onMounted(() => {
             }
         });
     });
+    loading.value = false;
 });
 
 
@@ -56,8 +58,13 @@ onMounted(() => {
         <AppHeader class="mt-[14px] md:mt-[0px]" />
         <!-- Badge for programming -->
         <BaseBadge class="mt-14px" contentText="Front-end projects" :badge="true" />
+        <!-- Placeholder for programming  -->
+        <div v-if="!loading" class="grid-system mt-14px">
+            <BasePlaceHolder v-for="placeholder in 4" :key="placeholder.id" />
+        </div>
         <!-- Cards for programming -->
         <div class="grid-system mt-14px">
+
             <BaseCard v-for="card of programmingType" :key="card.id" class="hover:opacity-90">
                 <template #image>
                     <img :src="card.img" class="rounded-t-6px" alt="" />
@@ -116,8 +123,15 @@ onMounted(() => {
         </div>
         <!-- Badge for designing -->
         <BaseBadge contentText="UI design projects" :badge="true" />
+        <!-- Placeholder for programming  -->
+        <div v-if="!loading" class="grid-system mt-14px">
+            <BasePlaceHolder v-for="placeholder in 4" :key="placeholder.id" />
+        </div>
         <!-- Cards for designing -->
         <div class="grid-system mt-14px">
+            <div v-if="!loading">
+                <h1>Loading...</h1>
+            </div>
             <BaseCard v-for="card of designingType" :key="card.id" class="hover:opacity-90">
                 <template #image>
                     <img :src="card.img" class="rounded-t-6px" alt="" />

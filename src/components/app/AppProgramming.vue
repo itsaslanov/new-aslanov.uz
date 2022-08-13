@@ -1,23 +1,29 @@
 <script setup>
+import { ref } from 'vue'; 
 import BaseButton from '../base/BaseButton.vue';
 import { firebaseAllData } from "../../use/firebaseAllData";
 
 const { title, previewLink, hashtags, githubLink, uploadImg, hashtagsInput, onHashtagInputBlur, uploadImage, addCardToFirebase } = firebaseAllData();
 
+const limited = ref(false);
+
 // Send all data to Firestore
 const onSubmit = async () => {
   // Call uploaded img function
   const imageUrl = await uploadImage(uploadImg.value.files[0]);
+
   // Type
   const type = "programming";
-  
+
   await addCardToFirebase({
+    date: Date.now(),
     img: imageUrl,
-    tags: hashtags.value,
+    hashtags: hashtags.value,
     title: title.value,
-    githubLink: githubLink.value, 
+    githubLink: githubLink.value,
     previewLink: previewLink.value,
-    type: type
+    type: type,
+    limited: limited.value,
   });
 
   // Clear value
@@ -25,6 +31,7 @@ const onSubmit = async () => {
   title.value = "";
   githubLink.value = "";
   previewLink.value = "";
+  limited.value = "";
 };
 
 </script>
@@ -60,6 +67,11 @@ const onSubmit = async () => {
       <input type="text" v-model="previewLink"
         class="border-[2px] px-[12px] py-[6px] w-full rounded border-aqua bg-black outline-none block" />
     </label>
+    <label class="flex gap-2 items-center">
+      <span class="block text-[14px] font-medium text-slate-700 mb-[4px] bg-black opacity-40 rounded-[4px]">Top:</span>
+      <input type="checkbox" v-model="limited"
+        class="border-[2px] px-[12px] py-[6px] rounded custom-checkbox border-aqua outline-none block" />
+    </label>
     <BaseButton class="w-full bg-aqua">Post a new card</BaseButton>
   </form>
 </template>
@@ -80,4 +92,5 @@ label:focus-within .opacity-40 {
 .custom-transform {
   transform: translate(-50%, -50%);
 }
+
 </style>

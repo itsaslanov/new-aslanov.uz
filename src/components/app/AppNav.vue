@@ -89,7 +89,7 @@ onMounted(() => {
         </li>
         <li>
           <button @click="handleSignOut"
-            class="button text-[14px] bg-lightRed py-[2px] p-2 rounded hover:opacity-50 uppercase" v-if="isLoggedIn">
+            class="button text-[14px] bg-lightRed py-[12px] p-2 rounded-none hover:opacity-50 uppercase w-full md:py-[2px] md:rounded" v-if="isLoggedIn">
             Log out
           </button>
         </li>

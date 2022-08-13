@@ -6,7 +6,8 @@ import {
 } from "firebase/storage";
 import { getStorageDb } from "../firebase/index";
 import { getFirestoreDb } from "../firebase/index";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, query, orderBy } from "firebase/firestore";
+
 
 export function firebaseAllData() {
   // Card's hashtags, title and links
@@ -53,9 +54,14 @@ export function firebaseAllData() {
   };
 
   // add user to Firebase
+  const collectionRef = collection(getFirestoreDb, "cards");
+
   const addCardToFirebase = async (card) => {
-    return await addDoc(collection(getFirestoreDb, "cards"), card);
+    return await addDoc(collectionRef, card);
   };
+
+  const collectionQuery = query(collection(getFirestoreDb, "cards"), orderBy("date"));
+  
 
   return {
     title,
@@ -69,5 +75,6 @@ export function firebaseAllData() {
     onImageUploadStatusChanged,
     uploadImage,
     addCardToFirebase,
+    collectionQuery
   }
 }
