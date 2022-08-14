@@ -1,13 +1,49 @@
+<script setup>
+import { ref } from 'vue';
+import emailjs from '@emailjs/browser';
+import BaseButton from '../components/base/BaseButton.vue';
+
+const inputFieldReset = ref(null);
+const form = ref(null);
+
+const sendToEmail = () => {
+    emailjs.sendForm('service_ev3q74k', 'contact_form', form.value, 'PiFVw9wpqNYhzQ-g2')
+        .then(() => {
+            alert('Message sent!')
+            inputFieldReset.value = "";
+        }, (error) => {
+            alert('Message not sent', error);
+        });
+}
+
+</script>
+
 <template>
     <div class="max-w-[1080px] px-[14px] xl:px-0 mx-auto">
-       <div class="flex flex-wrap mt-3 gap-3 md:mt-0 pt-[50px] pb-[200px]">
-            <div class="self-center">
-                    <h1 class="text-[16px] md:text-[20px] uppercase">You can contact me by this email below:</h1>
-                    <span class="text-aqua bg-darkBlue py-[2px] px-[10px] rounded-sm text-[16px] md:text-[18px] mt-[14px] block max-w-fit">Its.aslanov@gmail.com</span>
-            </div>
-            <div class="mt-[50px]">
-                <img src="../assets/contact-abstract-boy.png" class="w-[538px] h-auto" alt="">
-            </div>
-       </div>
+        <form @submit.prevent="sendToEmail" ref="form" class="flex flex-col gap-4 max-w-[600px] mx-auto">
+            <h1 class="text-[26px] mb-[4px] mt-[14px] md:mt-[80px] flex gap-2 justify-center">Send your message to me <img class="h-[40px]" src="../assets/hands-shaking.png" alt=""></h1>
+
+            <label class="block">
+                <span class="block text-[14px] font-medium text-slate-700 mb-[4px]">Name:</span>
+                <input type="text" name="user_name" :value="inputFieldReset"
+                    class="border-[2px] px-[12px] py-[6px] w-full rounded border-lightBlue bg-black outline-none block focus:border-aqua" />
+            </label>
+            <label class="block">
+                <span class="block text-[14px] font-medium text-slate-700 mb-[4px]">Email: <span
+                        class="text-lightRed opacity-60">(please, add your own email to contact you back)</span></span>
+                <input type="email" name="user_email" :value="inputFieldReset"
+                    class="border-[2px] px-[12px] py-[6px] w-full rounded border-lightBlue bg-black outline-none block focus:border-aqua" />
+            </label>
+            <label class="block">
+                <span class="block text-[14px] font-medium text-slate-700 mb-[4px]">Message:</span>
+                <textarea rows="10" type="text" name="message" :value="inputFieldReset"
+                    class="border-[2px] px-[12px] py-[6px] w-full rounded border-lightBlue bg-black outline-none block focus:border-aqua" />
+            </label>
+            <BaseButton color="secondary" class="md:py-[6px] py-6px mb-[60px] md:mb-[80px]">
+                <slot>
+                    Send
+                </slot>
+            </BaseButton>
+        </form>
     </div>
 </template>
