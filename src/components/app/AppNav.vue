@@ -26,9 +26,11 @@ const router = useRouter();
 const isLoggedIn = ref(false);
 
 const handleSignOut = () => {
-  signOut(auth).then(() => {
-    router.push("/");
-  });
+  if (confirm("are you sure?")) {
+    signOut(auth).then(() => {
+      router.push("/");
+    });
+  }
 };
 
 onMounted(() => {
@@ -89,7 +91,8 @@ onMounted(() => {
         </li>
         <li>
           <button @click="handleSignOut"
-            class="button text-[14px] bg-lightRed py-[12px] p-2 rounded-none hover:opacity-50 uppercase w-full md:py-[2px] md:rounded" v-if="isLoggedIn">
+            class="button text-[14px] bg-lightRed py-[12px] p-2 rounded-none hover:opacity-50 uppercase w-full md:py-[2px] md:rounded"
+            v-if="isLoggedIn">
             Log out
           </button>
         </li>

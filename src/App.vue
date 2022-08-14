@@ -6,7 +6,11 @@ import AppFooter from "./components/app/AppFooter.vue";
 
 <template>
   <AppNav />
-  <RouterView />
+  <RouterView v-slot="{Component}">
+    <transition name="fade" mode="out-in">
+      <component :is="Component"></component>
+    </transition>
+  </RouterView>
   <AppFooter class="mt-24px" />
 </template>
 
@@ -15,5 +19,15 @@ import AppFooter from "./components/app/AppFooter.vue";
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease-out;
 }
 </style>
