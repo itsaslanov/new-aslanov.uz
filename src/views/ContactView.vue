@@ -7,13 +7,13 @@ const inputFieldReset = ref(null);
 const form = ref(null);
 
 const sendToEmail = () => {
-    emailjs.sendForm('service_ev3q74k', 'contact_form', form.value, 'PiFVw9wpqNYhzQ-g2')
+    emailjs.sendForm('service_id', 'template_id', form.value, 'qIzHieFa7Mryt3qMG')
         .then(() => {
             alert('Message sent!')
             inputFieldReset.value = "";
         }, (error) => {
             alert('Message not sent', error);
-        });
+        });``
 }
 
 </script>
