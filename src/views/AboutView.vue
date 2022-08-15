@@ -55,11 +55,11 @@ const aboutPerson = {
     certificates: [
         {
             name: 'IELTS certificate',
-            link: 'https://www.google.com/'
+            link: 'https://firebasestorage.googleapis.com/v0/b/aslanov-c939e.appspot.com/o/my-IELTS.pdf?alt=media&token=48c0d8b7-83c9-4dc7-bd66-a21c81e7ab88'
         },
         {
             name: 'Udemy UI/UX certificate',
-            link: 'https://www.google.com/'
+            link: 'https://firebasestorage.googleapis.com/v0/b/aslanov-c939e.appspot.com/o/udemy.pdf?alt=media&token=a040fec1-93ef-4942-b822-5c024a07edfa'
         }
     ],
     goal: 'Well, I would say that I want to work with a great team, also participate in large projects in order to boost my js skill. I guess that working with a great team leads to much more experience.'
@@ -100,7 +100,7 @@ const { fullName, job, aboutPersonSelf, frontEndSkills, uiDesignSkills, certific
                 <ul class="flex flex-col gap-5px list-disc text-[16px] text-16px ml-12px font-normal underline ">
                     <li class="hover:opacity-50 transition-all" v-for="certificate of certificates"
                         :key="certificate.id">
-                        <a :href="certificate.link">
+                        <a :href="certificate.link" target="_blank">
                             {{ certificate.name }}
                         </a>
                     </li>

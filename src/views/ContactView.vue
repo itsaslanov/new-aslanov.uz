@@ -21,7 +21,7 @@ const sendToEmail = () => {
 <template>
     <div class="max-w-[1080px] px-[14px] xl:px-0 mx-auto">
         <form @submit.prevent="sendToEmail" ref="form" class="flex flex-col gap-4 max-w-[600px] mx-auto">
-            <h1 class="text-[26px] mb-[4px] mt-[14px] md:mt-[80px] flex gap-2 justify-center">Send your message to me</h1>
+            <h1 class="text-[24px] mb-[4px] mt-[14px] md:mt-[80px] flex gap-2 justify-center uppercase">Send your message to me</h1>
 
             <label class="block">
                 <span class="block text-[14px] font-medium text-slate-700 mb-[4px]">Name:</span>
