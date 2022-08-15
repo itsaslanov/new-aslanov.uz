@@ -27,18 +27,18 @@
 
         <ul class="flex gap-[10px] self-start">
           <li class="hover:opacity-50 transition-all">
-            <a href="#">
+            <a href="https://github.com/itsaslanov" target="_blank">
               <img src="../../assets/github-rounded.svg" class="w-[32px]" alt="github" />
             </a>
           </li>
           <li class="hover:opacity-50 transition-all">
-            <a href="#">
-              <img src="../../assets/behance-rounded.svg" class="w-[32px]" alt="github" />
+            <a href="https://www.behance.net/itsaslanov" target="_blank">
+              <img src="../../assets/behance-rounded.svg" class="w-[32px]" alt="behance" />
             </a>
           </li>
           <li class="hover:opacity-50 transition-all">
-            <a href="#">
-              <img src="../../assets/linkedin-rounded.svg" class="w-[32px]" alt="github" />
+            <a href="#" target="_blank">
+              <img src="../../assets/linkedin-rounded.svg" class="w-[32px]" alt="linkedin" />
             </a>
           </li>
         </ul>

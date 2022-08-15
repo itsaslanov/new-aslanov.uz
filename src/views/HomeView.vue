@@ -158,7 +158,7 @@ onMounted(() => {
                     </div>
                     <div class="pb-12px px-12px md:flex md:gap-8px md:justify-center">
                         <BaseButton color="secondary">
-                            <a :href="card.previewLink" class="flex gap-[8px]" target="_blank">
+                            <a :href="card.previewLink" class="flex gap-[8px] justify-center w-full" target="_blank">
                                 <img src="../assets/behance.svg" alt="github" class="w-[20px] self-center" />
                                 <span>Behance</span>
                             </a>

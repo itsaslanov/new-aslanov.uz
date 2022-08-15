@@ -13,9 +13,10 @@ const email = ref("");
 const password = ref("");
 const currentStatus = ref("");
 const errMsg = ref("");
+const atGmailCom = '@gmail.com';
 
 const onSubmit = () => {
-  signInWithEmailAndPassword(auth, email.value, password.value)
+  signInWithEmailAndPassword(auth, email.value + atGmailCom, password.value)
     .then((userCredential) => {
       // Signed in
       const user = userCredential.user;

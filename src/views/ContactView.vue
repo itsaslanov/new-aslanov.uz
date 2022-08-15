@@ -21,7 +21,7 @@ const sendToEmail = () => {
 <template>
     <div class="max-w-[1080px] px-[14px] xl:px-0 mx-auto">
         <form @submit.prevent="sendToEmail" ref="form" class="flex flex-col gap-4 max-w-[600px] mx-auto">
-            <h1 class="text-[26px] mb-[4px] mt-[14px] md:mt-[80px] flex gap-2 justify-center">Send your message to me <img class="h-[40px]" src="../assets/hands-shaking.png" alt=""></h1>
+            <h1 class="text-[26px] mb-[4px] mt-[14px] md:mt-[80px] flex gap-2 justify-center">Send your message to me</h1>
 
             <label class="block">
                 <span class="block text-[14px] font-medium text-slate-700 mb-[4px]">Name:</span>
@@ -30,7 +30,7 @@ const sendToEmail = () => {
             </label>
             <label class="block">
                 <span class="block text-[14px] font-medium text-slate-700 mb-[4px]">Email: <span
-                        class="text-lightRed opacity-60">(please, add your own email to contact you back)</span></span>
+                        class="text-green opacity-60">(please, add your own email to text you back)</span></span>
                 <input type="email" name="user_email" :value="inputFieldReset"
                     class="border-[2px] px-[12px] py-[6px] w-full rounded border-lightBlue bg-black outline-none block focus:border-aqua" />
             </label>
