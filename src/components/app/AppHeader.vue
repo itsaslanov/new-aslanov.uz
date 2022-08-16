@@ -21,7 +21,7 @@ const shortDescriptions = ref([
     </div>
     <div
       class="w-full bg-gray border border-lightBlue rounded-[6px] custom-box-shadow px-[14px] py-[20px] md:py-[42px] lg:px-[60px] flex flex-col gap-20px">
-      <h2 class="uppercase text-[22px] text-22px font-medium">Aslanov Azizbek</h2>
+      <h2 class="uppercase text-[22px] text-22px font-medium">Azizbek Aslanov</h2>
       <ul class="flex flex-col gap-5px list-disc text-[16px] ml-12px font-normal">
         <li v-for="shortDescription of shortDescriptions">{{ shortDescription.title }}</li>
       </ul>
