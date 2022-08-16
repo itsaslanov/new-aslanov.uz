@@ -129,9 +129,6 @@ onMounted(() => {
         </div>
         <!-- Cards for designing -->
         <div class="grid-system mt-14px">
-            <div v-if="!loading">
-                <h1>Loading...</h1>
-            </div>
             <BaseCard v-for="card of designingType" :key="card.id" class="hover:opacity-90">
                 <template #image>
                     <img :src="card.img" class="rounded-t-6px" alt="" />

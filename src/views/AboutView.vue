@@ -91,13 +91,16 @@ const { fullName, job, aboutPersonSelf, frontEndSkills, uiDesignSkills, certific
                         #{{ frontEndSkill.skill }}
                     </li>
                 </ul>
+                <ul class="mt-4 list-disc ml-12px">
+                    <li class="hover:opacity-50 transition-all"><a href="https://www.frontendmentor.io/profile/itsaslanov" target="_blank" class="block  underline">My Frontend Mentor profile</a></li>
+                </ul>
                 <span class="uppercase text-[12px] text-aqua block mt-14px">UI/UX skills:</span>
                 <ul class="mt-6px flex flex-wrap gap-[8px] text-16px">
                     <li class="text-aqua bg-darkBlue px-[5px] rounded-sm" v-for="uiDesignSkill of uiDesignSkills"
                         :key="uiDesignSkill.id">#{{ uiDesignSkill.skill }}</li>
                 </ul>
                 <span class="uppercase text-[12px] text-aqua block mt-14px">some certificates:</span>
-                <ul class="flex flex-col gap-5px list-disc text-[16px] text-16px ml-12px font-normal underline ">
+                <ul class="flex flex-col gap-5px list-disc text-[16px] text-16px ml-12px font-normal underline">
                     <li class="hover:opacity-50 transition-all" v-for="certificate of certificates"
                         :key="certificate.id">
                         <a :href="certificate.link" target="_blank">
