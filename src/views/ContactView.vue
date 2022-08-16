@@ -30,7 +30,7 @@ const sendToEmail = () => {
             </label>
             <label class="block">
                 <span class="block text-[14px] font-medium text-slate-700 mb-[4px]">Email: <span
-                        class="text-green opacity-60">(please, add your own email to text you back)</span></span>
+                        class="text-lightRed opacity-60">(please, add your own email to text you back)</span></span>
                 <input type="email" name="user_email" :value="inputFieldReset"
                     class="border-[2px] px-[12px] py-[6px] w-full rounded border-lightBlue bg-black outline-none block focus:border-aqua" />
             </label>

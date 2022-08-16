@@ -1,6 +1,6 @@
 <script setup>
 const aboutPerson = {
-    fullName: 'John doe',
+    fullName: 'ASLANOV AZIZBEK',
     job: 'Front-end developer',
     aboutPersonSelf: "Hey there, I am a front-end developer, with 2 years of experience. Also, I have a deep knowledge of UI/UX design. I really do enjoy what I do, and much more responsible for the projects I get. Currently, I am working on VUE.js to hone my Javascript skill. I also do enjoy learning new technologies. Apart from that, I have great communication skills in English. Last but not least, I have an IELTS certificate(5.5 B2, August 7 2021), which shows the level of my English. Even though it has been a pretty long time, I am still enhancing my English (probably now C1).",
     frontEndSkills: [
