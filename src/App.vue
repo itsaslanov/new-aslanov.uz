@@ -2,11 +2,13 @@
 import { RouterView } from "vue-router";
 import AppNav from "./components/app/AppNav.vue";
 import AppFooter from "./components/app/AppFooter.vue";
+import AppShowBar from "./components/app/AppShowBar.vue";
 </script>
 
 <template>
+  <AppShowBar />
   <AppNav />
-  <RouterView v-slot="{Component}">
+  <RouterView v-slot="{ Component }">
     <transition name="fade" mode="out-in">
       <component :is="Component"></component>
     </transition>
