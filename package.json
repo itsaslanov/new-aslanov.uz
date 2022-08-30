@@ -9,8 +9,10 @@
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
     "firebase": "^9.9.1",
+    "sweetalert2": "^11.4.29",
     "vue": "^3.2.37",
-    "vue-router": "^4.1.2"
+    "vue-router": "^4.1.2",
+    "vue-sweetalert2": "^5.0.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.1",
