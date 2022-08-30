@@ -27,7 +27,7 @@ const sendToEmail = async () => {
   if (nameCheck || emailCheck || textareaCheck) {
     return swal.fire({
       icon: "error",
-      title: "Oops...",
+      title: `<span class="text-[18px]">Oops...</span>`,
       html: `<ul class="text-[14px] text-lightRed"><li>${nameCheck}</li><li>${emailCheck}</li><li>${textareaCheck}</li></ul>`,
       confirmButtonText: "Got it!",
     });
@@ -36,7 +36,7 @@ const sendToEmail = async () => {
   swal.fire({
     position: "center",
     icon: "success",
-    title: "Your message has been sent",
+    html: `<span class="text-[18px]">Your message has been sent</span>`,
     showConfirmButton: false,
     timer: 1500,
   });
