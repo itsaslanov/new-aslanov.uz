@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import BaseButton from "../base/BaseButton.vue";
 import { firebaseAllData } from "../../use/firebaseAllData";
-
+// composable
 const { title, previewLink, hashtags, uploadImg, hashtagsInput, onHashtagInputBlur, uploadImage, addCardToFirebase } = firebaseAllData();
 
 const limited = ref(false);
