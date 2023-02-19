@@ -9,7 +9,7 @@ const shortDescriptions = ref([
     title: "Have a deep knowledge of UI/UX design."
   },
   {
-    title: "Have great soft skills."
+    title: "Currently a student of BUFS in South Korea."
   }
 ])
 </script>
@@ -17,7 +17,7 @@ const shortDescriptions = ref([
 <template>
   <div class="flex flex-col gap-12px md:gap-20px md:flex-row md:mt-0px">
     <div class="w-full md:max-w-[275px]">
-      <img src="../../assets/person.png" class="w-full border border-lightBlue rounded-6px custom-box-shadow">
+      <img src="../../assets/aslanov.png" class="w-full border border-lightBlue rounded-6px custom-box-shadow">
     </div>
     <div
       class="w-full bg-gray border border-lightBlue rounded-[6px] custom-box-shadow px-[14px] py-[20px] md:py-[42px] lg:px-[60px] flex flex-col gap-20px">

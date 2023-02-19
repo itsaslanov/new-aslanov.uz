@@ -37,7 +37,7 @@
             </a>
           </li>
           <li class="hover:opacity-50 transition-all">
-            <a href="#" target="_blank">
+            <a href="https://www.linkedin.com/in/itsaslanov/" target="_blank">
               <img src="../../assets/linkedin-rounded.svg" class="w-[32px]" alt="linkedin" />
             </a>
           </li>

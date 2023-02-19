@@ -12,7 +12,7 @@ const closeShowBar = () => {
 
 <template>
   <Transition name="slide-fade">
-    <div class=" bg-[#5596f7]" v-if="showBarValue">
+    <div class=" bg-[#5c64fe]" v-if="showBarValue">
       <div class="max-w-[1080px] px-[14px] xl:px-0 mx-auto">
         <div class="flex py-2 items-center justify-between relative underline">
           <a href="https://github.com/itsaslanov/stylesheets" target="_blank"

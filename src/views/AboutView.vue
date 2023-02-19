@@ -73,7 +73,7 @@ const { fullName, job, aboutPersonSelf, frontEndSkills, uiDesignSkills, certific
     <div class="max-w-[1080px] px-[14px] xl:px-0 mx-auto">
         <div class="flex flex-col md:flex-row gap-12px md:gap-20px mt-[14px] md:mt-[0px]">
             <div class="w-full md:max-w-[275px]">
-                <img src="../assets/person.png" class="w-full border border-lightBlue rounded-6px custom-box-shadow">
+                <img src="../assets/about-aslanov.png" class="w-full border border-lightBlue rounded-6px custom-box-shadow">
             </div>
             <div class="w-full bg-gray rounded-md border border-lightBlue py-14px md:py-28px px-[20px] md:px-[60px]">
                 <span class="uppercase text-[12px] text-aqua">Full name:</span>
@@ -84,6 +84,17 @@ const { fullName, job, aboutPersonSelf, frontEndSkills, uiDesignSkills, certific
                 <h3 class="text-[16px] text-start md:text-justify">
                     {{ aboutPersonSelf }}
                 </h3>
+
+                <br />
+
+                <h3 class="text-[16px] text-start md:text-justify">
+                    I am currently a student of 
+                    <a href="https://www.bufs.ac.kr/" class="inline-block underline" target="_blank">Busan university of foreign studies</a>
+                     in South Korea
+                </h3>
+
+                <br />
+
                 <span class="uppercase text-[12px] text-aqua block mt-14px">front-end skills:</span>
                 <ul class="mt-6px flex flex-wrap gap-[8px] text-16px">
                     <li class="text-aqua bg-darkBlue px-[5px] rounded-sm" v-for="frontEndSkill of frontEndSkills"
