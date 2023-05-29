@@ -15,43 +15,37 @@ const sendForm = async () => {
     "service_id",
     "template_id",
     form.value,
-    "qIzHieFa7Mryt3qMG"
+    "wvRevSlgME8HO5djY"
   );
 };
 
 const sendToEmail = async () => {
 
-  const nameCheck = name.value === "" ? "warningText" : "";
-  const emailCheck = email.value === "" ? "warningText" : "";
-  const textareaCheck = textarea.value === "" ? "warningText" : "";
-
-  if (!nameCheck || !emailCheck || !textareaCheck) {
-    return
-  }
-
-  swal.fire({
-      icon: "error",
-      title: `<span class="text-[18px]">Oops...</span>`,
-      html: `<ul class="text-[14px] text-lightRed"><li>${nameCheck} ${emailCheck} ${textareaCheck}</li></ul>`,
-      confirmButtonText: "Got it!",
-  });
+  const nameCheck = name.value === "" ? "your name" : "";
+  const emailCheck = email.value === "" ? "your email" : "";
+  const textareaCheck = textarea.value === "" ? "your message" : "";
 
   if (nameCheck || emailCheck || textareaCheck) {
-    return
-  }
+    return swal.fire({
+        icon: "error",
+        html: `<ul class="text-[14px] text-lightRed"><li>Please, type ${nameCheck} ${emailCheck} ${textareaCheck}</li></ul>`,
+        confirmButtonText: "Okay!",
+     });
+  } 
 
-  swal.fire({
-    position: "center",
-    icon: "success",
-    html: `<span class="text-[18px]">Your message has been sent</span>`,
-    showConfirmButton: false,
-    timer: 1500,
-  });
+    swal.fire({
+      position: "center",
+      icon: "success",
+      html: `<span class="text-[18px]">Your message has been sent</span>`,
+      showConfirmButton: false,
+      timer: 1500,
+    });
 
-  await sendForm();
-  name.value = "";
-  email.value = "";
-  textarea.value = "";
+    await sendForm();
+    name.value = "";
+    email.value = "";
+    textarea.value = "";
+
 };
 </script>
 
