@@ -20,17 +20,24 @@ const sendForm = async () => {
 };
 
 const sendToEmail = async () => {
-  const nameCheck = name.value === "" ? "Please, type your name" : "";
-  const emailCheck = email.value === "" ? "Please, type your email" : "";
-  const textareaCheck = textarea.value === "" ? "Please, type your message" : "";
 
-  if (nameCheck || emailCheck || textareaCheck) {
-    return swal.fire({
+  const nameCheck = name.value === "" ? "warningText" : "";
+  const emailCheck = email.value === "" ? "warningText" : "";
+  const textareaCheck = textarea.value === "" ? "warningText" : "";
+
+  if (!nameCheck || !emailCheck || !textareaCheck) {
+    return
+  }
+
+  swal.fire({
       icon: "error",
       title: `<span class="text-[18px]">Oops...</span>`,
-      html: `<ul class="text-[14px] text-lightRed"><li>${nameCheck}</li><li>${emailCheck}</li><li>${textareaCheck}</li></ul>`,
+      html: `<ul class="text-[14px] text-lightRed"><li>${nameCheck} ${emailCheck} ${textareaCheck}</li></ul>`,
       confirmButtonText: "Got it!",
-    });
+  });
+
+  if (nameCheck || emailCheck || textareaCheck) {
+    return
   }
 
   swal.fire({
