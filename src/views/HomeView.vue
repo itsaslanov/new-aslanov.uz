@@ -80,7 +80,7 @@ onMounted(() => {
                 </template>
 
                 <template #title>
-                    <div class="block pb-12px px-12px text-lg text-18px">
+                    <div class="block pb-12px px-12px text-16px">
                         {{ card.title }}
                     </div>
                 </template>
