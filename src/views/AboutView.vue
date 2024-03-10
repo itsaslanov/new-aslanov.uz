@@ -2,7 +2,7 @@
 const aboutPerson = {
     fullName: 'Azizbek Aslanov',
     job: 'Front-end developer',
-    aboutPersonSelf: "Hey there, I am a front-end developer, with 2 years of experience. Also, I have a deep knowledge of UI/UX design. I really do enjoy what I do, and much more responsible for the projects I get. Currently, I am working on VUE.js to hone my Javascript skill. I also do enjoy learning new technologies. Apart from that, I have great communication skills in English. Last but not least, I have an IELTS certificate(5.5 B2, August 7 2021), which shows the level of my English. Even though it has been a pretty long time, I am still enhancing my English (probably now C1).",
+    aboutPersonSelf: "I am an adept front-end developer with two years of immersive experience under my belt. My expertise encompasses a profound grasp of UI/UX design principles, a field that I find deeply gratifying. I approach each project with a sense of ownership and accountability, ensuring its successful completion. At present, I am dedicated to refining my JavaScript proficiency through focused exploration of Vue.js. I am inherently drawn to learning new technologies, perpetually seeking to expand my skill set and stay abreast of industry trends. Furthermore, I possess exceptional English communication skills, rounding out my comprehensive abilities.",
     frontEndSkills: [
         {
             skill: 'Html5'
@@ -54,10 +54,6 @@ const aboutPerson = {
     ],
     certificates: [
         {
-            name: 'IELTS certificate',
-            link: 'https://firebasestorage.googleapis.com/v0/b/aslanov-c939e.appspot.com/o/my-IELTS.pdf?alt=media&token=48c0d8b7-83c9-4dc7-bd66-a21c81e7ab88'
-        },
-        {
             name: 'Udemy UI/UX certificate',
             link: 'https://firebasestorage.googleapis.com/v0/b/aslanov-c939e.appspot.com/o/udemy.pdf?alt=media&token=a040fec1-93ef-4942-b822-5c024a07edfa'
         }
@@ -73,7 +69,7 @@ const { fullName, job, aboutPersonSelf, frontEndSkills, uiDesignSkills, certific
     <div class="max-w-[1080px] px-[14px] xl:px-0 mx-auto">
         <div class="flex flex-col md:flex-row gap-12px md:gap-20px mt-[14px] md:mt-[0px]">
             <div class="w-full md:max-w-[275px]">
-                <img src="../assets/about-aslanov.png" class="w-full border border-lightBlue rounded-6px custom-box-shadow">
+                <img src="../assets/userpage.png" alt="aslanov_img" class="w-full border border-lightBlue rounded-6px custom-box-shadow">
             </div>
             <div class="w-full bg-gray rounded-md border border-lightBlue py-14px md:py-28px px-[20px] md:px-[60px]">
                 <span class="uppercase text-[12px] text-aqua">Full name:</span>
@@ -87,11 +83,10 @@ const { fullName, job, aboutPersonSelf, frontEndSkills, uiDesignSkills, certific
 
                 <br />
 
-                <h3 class="text-[16px] text-start md:text-justify">
-                    I am currently a student of 
-                    <a href="https://www.bufs.ac.kr/" class="inline-block underline" target="_blank">Busan university of foreign studies</a>
-                     in South Korea
-                </h3>
+              <h3 class="text-[16px] text-start">
+                • Presently a student of <a href="https://www.bufs.ac.kr/" class="inline-block underline" target="_blank">Busan university of foreign studies</a>
+                in South Korea
+              </h3>
 
                 <br />
 
@@ -119,10 +114,7 @@ const { fullName, job, aboutPersonSelf, frontEndSkills, uiDesignSkills, certific
                         </a>
                     </li>
                 </ul>
-                <span class="uppercase text-[12px] text-aqua block mt-14px">My goal:</span>
-                <h3 class="text-[16px] text-16px text-start md:text-justify">
-                    {{ goal }}
-                </h3>
+
             </div>
         </div>
     </div>
